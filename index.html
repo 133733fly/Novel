@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>小谢中文网</title>
+  <!--相关插件与样式表-->
+  <link rel="icon" href="images/index.icon" type="image/x-icon">
+  <script src="layui.all.js"></script>
+  <link rel="stylesheet" href="css/layui.css" media="all"> 
+<!--瀑布流样式表与插件-->
+<script src="jquery-1.11.0.min.js"></script>
+<script src="pinterest_grid.js"></script>
+<link rel="stylesheet" type="text/css" href="css/pubu.css">
+<link rel="stylesheet" type="text/css" href="css/image.css">
+</head>
+<body>
+ <!--       导航栏        -->
+<ul class="layui-nav" lay-filter="">
+  <li class="layui-nav-item"><a href="index.html">首页</a></li>
+  <li class="layui-nav-item layui-this"><a href="#hot">最热小说</a></li>
+  <li class="layui-nav-item"><a href="">搜图书</a></li>
+  <li class="layui-nav-item">
+    <a href="">个人中心</a>
+  </li>
+</ul>
+
+ <!--        轮播块       -->
+<div class="layui-carousel" id="lunbo">
+  <div carousel-item>
+    <div><img class="indeximg" src="images/0.jpg" title="司礼监"></div>
+    <div><img class="indeximg" src="images/1.jpg" title="反叛的大魔王"></div>
+    <div><img class="indeximg" src="images/2.jpg" title="恐怖片场"></div>
+    <div><img class="indeximg" src="images/3.jpg" title="奇幻漂流"></div>
+    <div><img class="indeximg" src="images/4.jpg" title="神宠进化"></div>
+   <div><img  class="indeximg" src="images/5.jpg" title="黑化娘子"></div>
+  </div>
+</div>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+
+<script>
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#lunbo',
+    interval:2500,
+    width: 'auto', //设置容器宽度
+    arrow: 'always' //始终显示箭头
+  });
+});
+</script>
+
+<div id="hot"><h1>热门推荐</h1></div>
+
+
+<!--瀑布流块
+这里图书数据的加入采用循环,从数据库读入图书信息
+-->
+<section id="gallery-wrapper">
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/1.jpg" alt="...">
+    <h1><a href="#">道门法则</a></h1>
+    <p>作者:笑小</p>
+  </article>
+ 
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/2.jpg" alt="...">
+    <h1><a href="#">Title 2</a></h1>
+    <p>Description 2</p>
+  </article>
+ 
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/9.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/8.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/4.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/5.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/6.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/11.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+  <article class="white-panel"> 
+    <img class="pubuimg" src="images/pbimages/7.jpg" alt="...">
+    <h1><a href="#">Title 3</a></h1>
+    <p>Description 3</p>
+  </article>
+</section> 
+
+<script type="text/javascript">
+    $(function(){
+      $("#gallery-wrapper").pinterest_grid({
+        no_columns: 3,
+                padding_x: 20,
+                padding_y: 20,
+                margin_bottom: 50,
+                single_column_breakpoint: 900
+      });
+      
+    });
+  
+</script>
+</body>
+</html>
+明天要搞的是将前台再做一点优化,将数据填补进去,之后搞后台,让后台可以与前台进行交互,填充后台功能
